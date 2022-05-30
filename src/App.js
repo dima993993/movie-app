@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Frames from "./Component/Frames/Frames";
+import { Routes, Route } from "react-router-dom";
+import HomePageContainer from "./Component/HomePage/HomePageContainer";
+import Preloader from "./Common/Preloader/Preloader";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app_wrapper'>
+      <Routes>
+        <Route path='/' element={<HomePageContainer />}></Route>
+        <Route path='/movies' element={<Frames />}></Route>
+        <Route path='/preloader' element={<Preloader />}></Route>
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

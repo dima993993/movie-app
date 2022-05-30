@@ -1,0 +1,12 @@
+.frames_content {
+    width: 95%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+}
+.frames_content > div:first-child {
+    width: 25%;
+}
+.frames_content > div:last-child {
+    width: 75%;
+}

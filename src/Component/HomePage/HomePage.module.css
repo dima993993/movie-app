@@ -1,0 +1,11 @@
+.home_page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home_page>div:first-child {
+    width: 10%;
+}
+.home_page>div:last-child {
+    width: 90%;
+}

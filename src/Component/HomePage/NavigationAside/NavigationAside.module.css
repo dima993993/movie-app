@@ -1,0 +1,30 @@
+.aside {
+    width: inherit;
+    background-color: #000000;
+    border-right: 1px solid #cccccc;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+.icon_wrapper, .social_buttons_wrapper, .logo {
+    height: 33vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    font-size: 30px;
+}
+.logo>div {
+    transform: rotate(-90deg);
+}
+.icon > div {
+    margin: 30px 0;
+    font-size: 26px;
+    cursor: pointer;
+}
+.social_buttons {
+    transform: rotate(-90deg)
+}
+

@@ -1,0 +1,19 @@
+.preloader {
+    font-size: 36px;
+    opacity: 0.2;
+    width: 44px;
+    height: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    animation: opacity 1s infinite;
+    color: #C72538;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

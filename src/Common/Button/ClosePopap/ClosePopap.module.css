@@ -1,0 +1,16 @@
+.wrapper {
+    padding: 10px 16px;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.wrapper * {
+    transition: 0.5s;
+}
+.wrapper:hover {
+    background-color: #ffffff;
+}
+.wrapper:hover * {
+    color: #C72538 !important;
+}

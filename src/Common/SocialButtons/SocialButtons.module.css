@@ -1,0 +1,7 @@
+.social_buttons {
+    display: flex;
+}
+.social_buttons > div {
+    font-size: 20px;
+    margin: 0 10px;
+}
