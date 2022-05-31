@@ -1,0 +1,19 @@
+.banner_wrapper {
+    max-width: 100%;
+}
+.banner_block > div {
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.banner_block > div:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right:0;
+    left:0;
+    background-color: rgba(0,0,0,0.5);
+}

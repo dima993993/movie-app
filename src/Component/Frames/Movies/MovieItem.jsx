@@ -1,10 +1,15 @@
 import { faPlay, faPlus, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import style from "./Movies.module.css";
+import { NavLink } from "react-router-dom";
+import { testApi } from "./../../../Api/api";
+import style from "./MoviesBlock.module.css";
 
 const MovieItem = () => {
   return (
-    <div className={style.items_wrapper}>
+    <NavLink
+      to={"/"}
+      className={style.items_wrapper}
+      onClick={() => testApi.test().then((data) => console.log(data))}>
       <div>
         <div className={style.add_watch_list}>
           <FontAwesomeIcon icon={faPlus} />
@@ -29,7 +34,7 @@ const MovieItem = () => {
           <FontAwesomeIcon icon={faPlay} />
         </span>
       </div>
-    </div>
+    </NavLink>
   );
 };
 export default MovieItem;

@@ -1,4 +1,4 @@
-import style from "./Movies.module.css";
+import style from "./BannerMovies.module.css";
 const BannerMovies = () => {
   return (
     <div className={style.banner_wrapper}>

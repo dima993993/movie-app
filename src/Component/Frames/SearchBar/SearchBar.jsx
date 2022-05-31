@@ -1,6 +1,6 @@
 import { faSearch, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import style from "./Movies.module.css";
+import style from "./SearchBar.module.css";
 let arr = [1, 2, 3, 4];
 
 const SearchBar = () => {

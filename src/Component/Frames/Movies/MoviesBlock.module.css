@@ -1,0 +1,63 @@
+.list_movies_wrapper {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.items_wrapper {
+    width: 25%;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    position: relative;
+    background-color: #111111;
+    overflow: hidden;
+}
+.items_wrapper:hover img{
+    transform: scale(1.03);
+}
+.add_watch_list {
+    position: absolute;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+    transition: 0.3s;
+    z-index: 99;
+}
+.add_watch_list:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+.items_wrapper img {
+    width: 100%;
+    transition: 0.5s;
+}
+.raiting_block {
+    margin: 10px;
+}
+.raiting_block > span:first-child * {
+    color: yellow;
+}
+.raiting_block > span:last-child {
+    margin-left: 10px;
+}
+.title {
+    font-size: 22px;
+    margin: 10px;
+}
+.btn_trailer {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    cursor:pointer;
+    transition: 0.3s;
+}
+.btn_trailer:hover {
+    background-color: #333333;
+}
+.btn_trailer > span {
+    margin: 0 5px;
+}
+.btn_trailer>span:first-child {
+    font-size: 18px;
+}

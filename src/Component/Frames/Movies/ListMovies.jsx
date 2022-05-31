@@ -1,5 +1,5 @@
 import MovieItem from "./MovieItem";
-import style from "./Movies.module.css";
+import style from "./MoviesBlock.module.css";
 
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 

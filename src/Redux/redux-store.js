@@ -1,12 +1,14 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunkMiddleware from "redux-thunk";
 import HomePageReducer from "./HomePageReducer";
 import MovieReducer from "./MoviesReducer";
 
 let reducers = combineReducers({
   HomePage: HomePageReducer,
+  Movies: MovieReducer,
 });
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 window.store = store;
 
