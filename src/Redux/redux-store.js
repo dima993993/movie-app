@@ -5,7 +5,7 @@ import MovieReducer from "./MoviesReducer";
 
 let reducers = combineReducers({
   HomePage: HomePageReducer,
-  Movies: MovieReducer,
+  MoviesPage: MovieReducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

@@ -2,12 +2,12 @@
     margin-top: 25px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 .items_wrapper {
     width: 25%;
-    margin-left: 50px;
+    margin-left: 3%;
     margin-bottom: 50px;
     position: relative;
     background-color: #111111;

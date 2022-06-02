@@ -1,19 +1,22 @@
+.container_preloader {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+}
 .preloader {
-    font-size: 36px;
-    opacity: 0.2;
+    font-size: 56px;
     width: 44px;
     height: 40px;
     display: flex;
     flex-wrap: wrap;
-    animation: opacity 1s infinite;
     color: #C72538;
 }
 
-@keyframes opacity {
+/* @keyframes opacity {
     0% {
         opacity: 0;
     }
     100% {
         opacity: 1;
     }
-}
+} */
