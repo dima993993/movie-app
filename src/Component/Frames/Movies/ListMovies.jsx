@@ -7,7 +7,11 @@ const ListMovies = (props) => {
     <div>
       <div className={style.list_movies_wrapper}>
         {props.itemInPage.map((el) => (
-          <MovieItem {...el} />
+          <MovieItem
+            {...el}
+            openTrailerPopap={props.openTrailerPopap}
+            getCurrentMovie={props.getCurrentMovie}
+          />
         ))}
       </div>
       <Pagination

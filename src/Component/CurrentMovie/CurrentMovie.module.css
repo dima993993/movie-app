@@ -1,0 +1,90 @@
+.content_wrapper {
+    max-width: 1200px;
+    display: flex;
+    margin: 100px auto;
+}
+.poster {
+    width: 25%;
+    margin: 20px;
+}
+.content {
+    width: 75%;
+    margin: 20px;
+}
+.poster img {
+    width: 100%;
+}
+.title {
+    font-size: 50px;
+    font-weight: bold;
+}
+.items {
+    margin-top: 10px;
+}
+.items * {
+    font-size: 14px;
+    color: #555555;
+}
+.items >*>*:not(:first-child) {
+    margin-left: 8px;
+}
+.items > *:not(:first-child) {
+    margin-left: 15px;
+}
+.description {
+    margin-top: 20px;
+}
+.cast {
+    margin-top: 20px;
+}
+.cast>*:first-child {
+    font-size: 25px;
+    font-weight: bold;
+}
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttons > * {
+    width: 22%;
+    background-color: transparent;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+.buttons > * > * {
+    margin: 0 3px;
+    position: relative;
+}
+.buttons > *:hover .first_btn{
+    background-color: #000000;
+}
+
+.first_btn {
+    background-color: #C72538;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:-3px;
+}
+.second_btn {
+    background-color: #555555;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:-102%;
+    transition: 0.5s;
+}
+.buttons > *:hover .second_btn {
+    left: -3px;
+}
+
+
+

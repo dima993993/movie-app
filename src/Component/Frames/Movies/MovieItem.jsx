@@ -5,34 +5,51 @@ import style from "./MoviesBlock.module.css";
 
 const MovieItem = (props) => {
   let title = () => {
-    if (props.title.length > 30) {
-      return props.title.slice(0, 30) + "...";
+    if (props.title.length > 20) {
+      return props.title.slice(0, 20) + "...";
     } else {
       return props.title;
     }
   };
+
   return (
-    <NavLink to={"/"} className={style.items_wrapper}>
+    <NavLink
+      to={`/movies/${props.id}`}
+      className={style.items_wrapper}
+      onClick={(e) => {
+        props.getCurrentMovie(props.id);
+        if (
+          e.target.tagName == "SPAN" ||
+          e.target.tagName == "BUTTON" ||
+          e.target.tagName == "path"
+        ) {
+          e.preventDefault();
+        }
+      }}>
       <div>
-        <div className={style.add_watch_list}>
+        <button className={style.add_watch_list}>
           <FontAwesomeIcon icon={faPlus} />
-        </div>
-        <img src={props.url} alt='Poster' />
+        </button>
+        <img src={props.image} alt={props.title} />
       </div>
       <div className={style.raiting_block}>
-        <span>
+        <div>
           <FontAwesomeIcon icon={faStar} />
-        </span>
-        <span>{props.albumId + "." + props.id}</span>
+        </div>
+        <div>{props.imDbRating}</div>
       </div>
       <div className={style.title}>
-        <span>{title()}</span>
+        <div>{title()}</div>
       </div>
-      <div className={style.btn_trailer}>
-        <span>Trailer</span>
-        <span>
-          <FontAwesomeIcon icon={faPlay} />
-        </span>
+      <div className={style.btn_trailer_wrapper}>
+        <button
+          className={style.btn_trailer}
+          onClick={() => props.openTrailerPopap(props.id)}>
+          <span>Trailer</span>
+          <span>
+            <FontAwesomeIcon icon={faPlay} />
+          </span>
+        </button>
       </div>
     </NavLink>
   );

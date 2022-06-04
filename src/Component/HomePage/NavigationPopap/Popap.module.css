@@ -10,8 +10,18 @@ a {
     background-color: #000000;
     display: flex;
     justify-content: space-between;
+    animation-name: opacity;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
 }
-
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 .navigation_popap {
     width: 35%;
     padding-top: 15vh;

@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePageContainer from "./Component/HomePage/HomePageContainer";
 import Preloader from "./Common/Preloader/Preloader";
 import FramesContainer from "./Component/Frames/FramesContainer";
-import Pagination from "./Common/Pagination/Pagination";
+import CurrentMovieContainer from "./Component/CurrentMovie/CurrentMovieContainer";
 
 const App = () => {
   return (
@@ -12,6 +12,7 @@ const App = () => {
         <Route path='/' element={<HomePageContainer />}></Route>
         <Route path='/movies' element={<FramesContainer />}></Route>
         <Route path='/preloader' element={<Preloader />}></Route>
+        <Route path='/movies/:id' element={<CurrentMovieContainer />}></Route>
       </Routes>
     </div>
   );

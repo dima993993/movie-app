@@ -13,13 +13,13 @@ const Header = () => {
           <NavLink to={"/"}>Home</NavLink>
         </div>
         <div>
-          <NavLink to={"/"}>Movies</NavLink>
+          <NavLink to={"/movies"}>Movies</NavLink>
         </div>
         <div>
-          <NavLink to={"/"}>Serials</NavLink>
+          <NavLink to={"/serials"}>Serials</NavLink>
         </div>
         <div>
-          <NavLink to={"/"}>Top200</NavLink>
+          <NavLink to={"/top250"}>Top250</NavLink>
         </div>
         <div>
           <NavLink to={"/"}>Watch List</NavLink>

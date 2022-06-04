@@ -1,5 +1,11 @@
 import { connect } from "react-redux";
-import { getAllMovies, usePagination } from "../../Redux/MoviesReducer";
+import {
+  getAllMovies,
+  getCurrentMovie,
+  openTrailerPopap,
+  usePagination,
+  useTrailerPopap,
+} from "../../Redux/MoviesReducer";
 import Frames from "./Frames";
 import React, { PureComponent, useState } from "react";
 import Preloader from "../../Common/Preloader/Preloader";
@@ -32,10 +38,15 @@ let mapStateToProps = (state) => {
     currentPage: state.MoviesPage.currentPage,
     countPage: state.MoviesPage.countPage,
     activePage: state.MoviesPage.activePage,
+    trailerPopap: state.MoviesPage.trailerPopap,
   };
 };
 
-let FramesContainer = connect(mapStateToProps, { getAllMovies, usePagination })(
-  FramesWrapper
-);
+let FramesContainer = connect(mapStateToProps, {
+  getAllMovies,
+  usePagination,
+  useTrailerPopap,
+  getCurrentMovie,
+  openTrailerPopap,
+})(FramesWrapper);
 export default FramesContainer;
