@@ -6,7 +6,7 @@ const ListMovies = (props) => {
   return (
     <div>
       <div className={style.list_movies_wrapper}>
-        {props.itemInPage.map((el) => (
+        {props.itemInPage[props.currentPage - 1].map((el) => (
           <MovieItem
             {...el}
             openTrailerPopap={props.openTrailerPopap}

@@ -2,14 +2,15 @@
     display: flex;
     justify-content: center;
 }
-.pagination > span {
+.pagination > * {
     padding: 3px 6px;
     margin: 0 5px;
     border: 1px solid #cccccc;
     cursor: pointer;
     transition: 0.3s;
+    border-radius: 5px;
 }
-.pagination > span:hover {
+.pagination > *:hover {
     background-color: #ffffff;
     color: #000000;
 }

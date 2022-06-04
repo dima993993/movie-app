@@ -10,11 +10,6 @@ import Frames from "./Frames";
 import React, { PureComponent, useState } from "react";
 import Preloader from "../../Common/Preloader/Preloader";
 
-// const FramesWrapper = (props) => {
-//   // props.getAllMovies();
-//   console.log(props);
-//   return <Frames {...props} />;
-// };
 class FramesWrapper extends PureComponent {
   componentDidMount() {
     this.props.getAllMovies();
@@ -39,6 +34,8 @@ let mapStateToProps = (state) => {
     countPage: state.MoviesPage.countPage,
     activePage: state.MoviesPage.activePage,
     trailerPopap: state.MoviesPage.trailerPopap,
+    comingSoon: state.MoviesPage.comingSoon,
+    currentMovie: state.MoviesPage.currentMovie,
   };
 };
 

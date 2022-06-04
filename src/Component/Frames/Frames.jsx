@@ -10,7 +10,10 @@ const Frames = (props) => {
   return (
     <div className={style.frames}>
       {props.trailerPopap ? (
-        <PopapForTrailer useTrailerPopap={props.useTrailerPopap} />
+        <PopapForTrailer
+          useTrailerPopap={props.useTrailerPopap}
+          {...props.currentMovie}
+        />
       ) : (
         ""
       )}
@@ -18,7 +21,10 @@ const Frames = (props) => {
       <BannerMovies />
 
       <div className={style.frames_content}>
-        <SearchBar key={"search movies"} />
+        <SearchBar
+          comingSoon={props.comingSoon}
+          getCurrentMovie={props.getCurrentMovie}
+        />
         <ListMovies {...props} />
       </div>
     </div>

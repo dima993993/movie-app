@@ -45,13 +45,14 @@
 .poster_block {
     overflow: hidden;
 }
-.poster_block:hover img {
+.coming_soon:hover img {
     transform: scale(1.03);
 }
 .coming_soon {
     margin-top: 25px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 .coming_soon * {
     color: #cccccc;
@@ -67,7 +68,7 @@
     margin-top: 20px;
 }
 .coming_soon_rating > span:first-child * {
-    color: yellow;
+    color: #555555;
 }
 .coming_soon_rating > span:last-child {
     margin-left: 10px;

@@ -6,9 +6,11 @@ import {
   faPlay,
   faPlus,
   faShareNodes,
+  faStar,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { imdbAPI } from "../../Api/api";
 import Header from "../Frames/Header/Header";
 import style from "./CurrentMovie.module.css";
 
@@ -23,6 +25,10 @@ const CurrentMovie = (props) => {
         <div className={style.content}>
           <div className={style.title}>{props.title}</div>
           <div className={style.items}>
+            <span>
+              <FontAwesomeIcon icon={faStar} />
+              <span>{props.imDbRating}</span>
+            </span>
             <span>
               <FontAwesomeIcon icon={faUser} />
               <span>{props.contentRating}</span>
@@ -45,8 +51,15 @@ const CurrentMovie = (props) => {
             <div>Cast</div>
             <div>{props.stars}</div>
           </div>
+          <div className={style.cast}>
+            <div>Director</div>
+            <div>{props.directors}</div>
+          </div>
           <div className={style.buttons}>
-            <div>
+            <div
+              onClick={() =>
+                imdbAPI.getComingSoon().then((data) => console.log(data))
+              }>
               <div className={style.first_btn}></div>
               <div className={style.second_btn}></div>
               <FontAwesomeIcon icon={faPlay} />

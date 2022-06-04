@@ -11,7 +11,6 @@ const MovieItem = (props) => {
       return props.title;
     }
   };
-
   return (
     <NavLink
       to={`/movies/${props.id}`}
@@ -26,12 +25,14 @@ const MovieItem = (props) => {
           e.preventDefault();
         }
       }}>
-      <div>
-        <button className={style.add_watch_list}>
-          <FontAwesomeIcon icon={faPlus} />
-        </button>
-        <img src={props.image} alt={props.title} />
+      <div className={style.img_wrapper}>
+        <div style={{ backgroundImage: `url(${props.image})` }}>
+          <button className={style.add_watch_list}>
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
+        </div>
       </div>
+
       <div className={style.raiting_block}>
         <div>
           <FontAwesomeIcon icon={faStar} />
@@ -44,7 +45,9 @@ const MovieItem = (props) => {
       <div className={style.btn_trailer_wrapper}>
         <button
           className={style.btn_trailer}
-          onClick={() => props.openTrailerPopap(props.id)}>
+          onClick={() => {
+            props.openTrailerPopap(props.id);
+          }}>
           <span>Trailer</span>
           <span>
             <FontAwesomeIcon icon={faPlay} />

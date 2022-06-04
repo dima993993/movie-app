@@ -1,6 +1,9 @@
 import style from "./PopapForTrailer.module.css";
 import ClosePopap from "./../Button/ClosePopap/ClosePopap";
+import React from "react";
+import ReactPlayer from "react-player";
 const PopapForTrailer = (props) => {
+  console.log(props);
   return (
     <div className={style.popap_wrapper}>
       <div
@@ -9,15 +12,17 @@ const PopapForTrailer = (props) => {
         <ClosePopap />
       </div>
       <div className={style.popap}>
-        <div>TRAILER</div>
-        <div className={style.description}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
-          praesentium eum vero totam, saepe laborum eligendi! Sequi dolorem,
-          illo nulla saepe mollitia eveniet dolor, ratione blanditiis odit
-          incidunt, aperiam eos atque architecto voluptates ullam qui explicabo?
-          Unde exercitationem quo, eius eligendi vel sunt ipsa placeat autem
-          numquam sit qui laboriosam.
+        <div>{props.title}</div>
+        <div className={style.video_player}>
+          {/* <iframe
+            width='860px'
+            height='400px'
+            src={props.trailer.linkEmbed}
+            title={props.title}
+            allowFullScreen></iframe> */}
+          <ReactPlayer url={props.trailer.thumbnailUrl} />
         </div>
+        <div className={style.description}>{props.plot}</div>
       </div>
     </div>
   );

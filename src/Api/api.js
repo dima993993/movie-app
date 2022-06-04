@@ -19,12 +19,8 @@ export const imdbAPI = {
     const options = "/FullActor,Posters,Images,Trailer,Ratings,Wikipedia,";
     return instance(url, id, options);
   },
-};
-
-export const testApi = {
-  test() {
-    return axios
-      .get("https://jsonplaceholder.typicode.com/photos")
-      .then((response) => response.data);
+  getComingSoon() {
+    const url = "ComingSoon/";
+    return instance(url);
   },
 };

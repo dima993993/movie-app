@@ -1,34 +1,31 @@
-import { faSearch, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarCheck, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
 import style from "./SearchBar.module.css";
-let arr = [1, 2, 3, 4];
 
-const SearchBar = () => {
-  let comingSoon = () => {
-    return (
-      <div className={style.coming_soon}>
-        <div className={style.poster_block}>
-          <img
-            src='https://cdn.shopify.com/s/files/1/0057/3728/3618/products/255053349_408225954164881_580470973376990445_n_558x.jpg?v=1637860151'
-            alt='Poster'
-          />
-        </div>
-        <div className={style.text_block}>
-          <div>Title Films</div>
-          <div className={style.coming_soon_rating}>
-            <span>
-              <FontAwesomeIcon icon={faStar} />
-            </span>
-            <span>9.9</span>
-          </div>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam,
-            nulla?
-          </div>
+const ComingSoon = (propsElement) => {
+  return (
+    <NavLink
+      to={`/movies/${propsElement.id}`}
+      className={style.coming_soon}
+      onClick={() => propsElement.getCurrentMovie(propsElement.id)}>
+      <div className={style.poster_block}>
+        <img src={propsElement.image} alt={propsElement.title} />
+      </div>
+      <div className={style.text_block}>
+        <div>{propsElement.title}</div>
+        <div className={style.coming_soon_rating}>
+          <span>
+            <FontAwesomeIcon icon={faCalendarCheck} />
+          </span>
+          <span>{propsElement.releaseState}</span>
         </div>
       </div>
-    );
-  };
+    </NavLink>
+  );
+};
+
+const SearchBar = (props) => {
   return (
     <div className={style.search_bar_wrapper}>
       <div className={style.movie_search_text}>Movie Search</div>
@@ -49,7 +46,9 @@ const SearchBar = () => {
       </div>
       <div className={style.movie_search_coming_soon}>Coming Soon</div>
       <div className={style.coming_soon_block}>
-        {arr.map((el) => comingSoon())}
+        {props.comingSoon.map((el) => (
+          <ComingSoon getCurrentMovie={props.getCurrentMovie} {...el} />
+        ))}
       </div>
     </div>
   );

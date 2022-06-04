@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import style from "./Pagination.module.css";
 
 const Pagination = (props) => {
@@ -22,13 +23,14 @@ const Pagination = (props) => {
     <div className={style.pagination_wrapper}>
       <div className={style.pagination}>
         {paginationBtn().map((el) => (
-          <span
+          <NavLink
+            to={`/movies?page=${el}`}
             onClick={() => {
               props.usePagination(el);
             }}
             className={props.currentPage == el ? style.active : ""}>
             {el}
-          </span>
+          </NavLink>
         ))}
       </div>
     </div>
