@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import style from "./Header.module.css";
 import Logo from "./../../../Common/Logo/Logo.jsx";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className={style.header}>
       <div className={style.logo}>
@@ -13,7 +13,11 @@ const Header = () => {
           <NavLink to={"/"}>Home</NavLink>
         </div>
         <div>
-          <NavLink to={"/movies"}>Movies</NavLink>
+          <NavLink
+            to={"/movies"}
+            onClick={props.movies == "" ? () => props.getAllMovies() : ""}>
+            Movies
+          </NavLink>
         </div>
         <div>
           <NavLink to={"/serials"}>Serials</NavLink>
@@ -28,7 +32,11 @@ const Header = () => {
           <NavLink to={"/"}>Pages</NavLink>
         </div>
       </div>
-      <div className={style.personal_info}>Personal Info</div>
+      <div className={style.personal_info}>
+        Personal Info:
+        <br />
+        dima.terehov.00@gmail.com
+      </div>
     </div>
   );
 };

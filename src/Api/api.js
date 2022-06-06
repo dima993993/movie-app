@@ -10,8 +10,7 @@ const instance = (url, id = "", options = "") => {
 export const imdbAPI = {
   getMovie() {
     const url = "AdvancedSearch/";
-    const options =
-      "?title_type=feature,tv_movie&release_date=2010-01-01,2022-01-01&count=250";
+    const options = "?groups=top_1000&count=250";
     return instance(url, options);
   },
   currentMovie(id) {
@@ -21,6 +20,20 @@ export const imdbAPI = {
   },
   getComingSoon() {
     const url = "ComingSoon/";
+    return instance(url);
+  },
+  searchMovie(title) {
+    const url = "Search/";
+    return instance(url, title);
+  },
+  getSerials() {
+    const url = "AdvancedSearch/";
+    const options =
+      "?title_type=tv_series,tv_episode,tv_special,short&count=250";
+    return instance(url, options);
+  },
+  getTop() {
+    const url = "Top250Movies/";
     return instance(url);
   },
 };

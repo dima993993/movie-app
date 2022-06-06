@@ -7,12 +7,12 @@ import {
   searchMoviesTitle,
   usePagination,
   useTrailerPopap,
-} from "../../Redux/MoviesReducer";
-import Frames from "./Frames";
+} from "../../../Redux/MoviesReducer";
+import Frames from "../Frames";
 import React, { PureComponent } from "react";
-import Preloader from "../../Common/Preloader/Preloader";
+import Preloader from "../../../Common/Preloader/Preloader";
 
-class FramesWrapper extends PureComponent {
+class SerialsWrapper extends PureComponent {
   componentDidMount() {
     if (this.props.movies == "") {
       this.props.getAllMovies();
@@ -30,7 +30,7 @@ class FramesWrapper extends PureComponent {
 
 let mapStateToProps = (state) => {
   return {
-    movies: state.MoviesPage.movies,
+    movies: state.MoviesPage.serials,
     itemInPage: state.MoviesPage.itemsInPage,
     toggleLoading: state.MoviesPage.toggleLoading,
     countItemsInPage: state.MoviesPage.countItemsInPage,
@@ -45,7 +45,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-let FramesContainer = connect(mapStateToProps, {
+let SerialsContainer = connect(mapStateToProps, {
   getAllMovies,
   usePagination,
   useTrailerPopap,
@@ -53,5 +53,5 @@ let FramesContainer = connect(mapStateToProps, {
   openTrailerPopap,
   searchMoviesTitle,
   getSearchText,
-})(FramesWrapper);
-export default FramesContainer;
+})(SerialsWrapper);
+export default SerialsContainer;

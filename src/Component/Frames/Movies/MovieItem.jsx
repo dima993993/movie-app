@@ -26,11 +26,10 @@ const MovieItem = (props) => {
         }
       }}>
       <div className={style.img_wrapper}>
-        <div style={{ backgroundImage: `url(${props.image})` }}>
-          <button className={style.add_watch_list}>
-            <FontAwesomeIcon icon={faPlus} />
-          </button>
-        </div>
+        <div style={{ backgroundImage: `url(${props.image})` }}></div>
+        <button className={style.add_watch_list}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
       </div>
 
       <div className={style.raiting_block}>

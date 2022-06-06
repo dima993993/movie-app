@@ -1,7 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import Preloader from "../../Common/Preloader/Preloader";
-import { getCurrentMovie } from "../../Redux/MoviesReducer";
+import {
+  getCurrentMovie,
+  getReviewItems,
+  getReviewText,
+} from "../../Redux/MoviesReducer";
 import CurrentMovie from "./CurrentMovie";
 
 class CurrentMovieWrapper extends React.Component {
@@ -14,7 +18,7 @@ class CurrentMovieWrapper extends React.Component {
     return (
       <>
         {this.props.toggleLoading ? (
-          <CurrentMovie {...this.props.currentMovie} />
+          <CurrentMovie {...this.props} />
         ) : (
           <Preloader />
         )}
@@ -27,10 +31,14 @@ let mapStateToProps = (state) => {
   return {
     currentMovie: state.MoviesPage.currentMovie,
     toggleLoading: state.MoviesPage.toggleLoading,
+    reviewText: state.MoviesPage.reviewText,
+    reviewArray: state.MoviesPage.reviewArray,
   };
 };
 
-let CurrentMovieContainer = connect(mapStateToProps, { getCurrentMovie })(
-  CurrentMovieWrapper
-);
+let CurrentMovieContainer = connect(mapStateToProps, {
+  getCurrentMovie,
+  getReviewText,
+  getReviewItems,
+})(CurrentMovieWrapper);
 export default CurrentMovieContainer;

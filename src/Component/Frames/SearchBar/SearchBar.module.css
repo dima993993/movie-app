@@ -21,16 +21,16 @@
     padding: 10px 20px;
     color: #999999;
 }
-.input_search_block > div {
+.search_btn {
     text-align: center;
     margin-right: 10px;
     cursor: pointer;
 }
-.input_search_block > div * {
+.search_btn * {
     color: #555555;
     transition: 0.5s;
 }
-.input_search_block > div:hover *{
+.search_btn:hover *{
     color: #C72538;
 }
 .categories > div {

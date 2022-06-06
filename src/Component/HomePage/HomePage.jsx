@@ -6,16 +6,16 @@ import SearchPopap from "./NavigationPopap/SearchPopap";
 
 const HomePage = (props) => {
   let popapActive = () => {
-    if (props.state.navPopap) {
-      return <NavigationPopap closePopap={props.state.closePopap} />;
-    } else if (props.state.searchPopap) {
-      return <SearchPopap closePopap={props.state.closePopap} />;
+    if (props.navPopap) {
+      return <NavigationPopap closePopap={props.closePopap} />;
+    } else if (props.searchPopap) {
+      return <SearchPopap {...props} />;
     } else {
       return (
         <div className={style.home_page}>
           <NavigationAside
-            openNav={props.state.openNavPopap}
-            openSearch={props.state.openSearchPopap}
+            openNav={props.openNavPopap}
+            openSearch={props.openSearchPopap}
           />
           <InfoAboutMe />
         </div>

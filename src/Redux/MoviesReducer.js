@@ -7,9 +7,16 @@ const PAGINATION = "PAGINATION";
 const TRAILER_POPAP = "TRAILER_POPAP";
 const SEARCH_CURRENT_MOVIE = "SEARCH_CURRENT_MOVIE";
 const COMING_SOON = "COMING_SOON";
+const SEARCH_MOVIES = "SEARCH_MOVIES";
+const GET_SEARCH_TEXT = "GET_SEARCH_TEXT";
+const TOGGLE_HASH_TAG = "TOGGLE_HASH_TAG";
+const REVIEW_TEXT = "REVIEW_TEXT";
+const REVIEW_ARRAY = "REVIEW_ARRAY";
+const GET_SERIALS = "GET_SERIALS";
 
 let initialState = {
   movies: [],
+  serials: [],
   currentMovie: [],
   itemsInPage: [],
   comingSoon: [],
@@ -18,6 +25,10 @@ let initialState = {
   currentPage: 1,
   countPage: 5,
   trailerPopap: false,
+  hashTag: false,
+  searchText: "",
+  reviewText: "",
+  reviewArray: [{ idMovie: "1", message: "Good Movie!!!" }],
 };
 
 const getCountPageItem = (movies) => {
@@ -46,10 +57,28 @@ const MovieReducer = (state = initialState, action) => {
         countPage: Math.ceil(action.movies.length / state.countItemsInPage),
       };
     }
+    case GET_SERIALS: {
+      return {
+        ...state,
+        serials: action.data,
+      };
+    }
     case SEARCH_CURRENT_MOVIE: {
       return {
         ...state,
         currentMovie: action.movie,
+      };
+    }
+    case SEARCH_MOVIES: {
+      return {
+        ...state,
+        movies: action.movies,
+      };
+    }
+    case GET_SEARCH_TEXT: {
+      return {
+        ...state,
+        searchText: action.text,
       };
     }
     case COUNT_ITEMS_IN_PAGE: {
@@ -82,6 +111,29 @@ const MovieReducer = (state = initialState, action) => {
         trailerPopap: action.statePopap,
       };
     }
+    case TOGGLE_HASH_TAG: {
+      return {
+        ...state,
+        hashTag: action.hashTag,
+      };
+    }
+    case REVIEW_TEXT: {
+      return {
+        ...state,
+        reviewText: action.text,
+      };
+    }
+    case REVIEW_ARRAY: {
+      let newObj = {
+        idMovie: action.id,
+        message: action.item,
+      };
+      return {
+        ...state,
+        reviewArray: [newObj, ...state.reviewArray],
+        reviewText: "",
+      };
+    }
     default:
       return state;
   }
@@ -101,11 +153,18 @@ const getcomingSoonMovies = (comingSoonMovies) => ({
   type: COMING_SOON,
   comingSoonMovies,
 });
+const getSearchMovies = (movies) => ({ type: SEARCH_MOVIES, movies });
+const toggleHashTag = (hashTag) => ({ type: TOGGLE_HASH_TAG, hashTag });
+const getSerialsData = (data) => ({ type: GET_SERIALS, data });
+
+export const getReviewText = (text) => ({ type: REVIEW_TEXT, text });
+export const getReviewItems = (id, item) => ({ type: REVIEW_ARRAY, id, item });
 
 export const useTrailerPopap = (statePopap) => ({
   type: TRAILER_POPAP,
   statePopap,
 });
+export const getSearchText = (text) => ({ type: GET_SEARCH_TEXT, text });
 
 // Thunks
 
@@ -115,10 +174,14 @@ export const getAllMovies = () => {
     imdbAPI.getMovie().then((data) => {
       dispatch(getMovies(data.results));
       dispatch(countItemInPage(data.results));
+      dispatch(toggleHashTag(false));
       dispatch(loadingPage(true));
     });
     imdbAPI.getComingSoon().then((data) => {
       dispatch(getcomingSoonMovies(data.items));
+    });
+    imdbAPI.getSerials().then((data) => {
+      dispatch(getSerialsData(data.results));
     });
   };
 };
@@ -142,6 +205,20 @@ export const openTrailerPopap = (id) => {
   return (dispatch) => {
     dispatch(getCurrentMovie(id));
     dispatch(useTrailerPopap(true));
+  };
+};
+
+export const searchMoviesTitle = (title) => {
+  return (dispatch) => {
+    dispatch(toggleHashTag(false));
+    dispatch(loadingPage(false));
+    imdbAPI.searchMovie(title).then((data) => {
+      dispatch(getSearchMovies(data.results));
+      dispatch(getMovies(data.results));
+      dispatch(countItemInPage(data.results));
+      dispatch(toggleHashTag(true));
+      dispatch(loadingPage(true));
+    });
   };
 };
 

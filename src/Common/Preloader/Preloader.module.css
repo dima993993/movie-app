@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    animation: rotate 3s infinite linear
+    animation: rotate 2s infinite linear
 }
 
 .preloader::after {
@@ -22,17 +22,15 @@
     border-left: 3px solid #cccccc;
     position: absolute;
     border-radius: 50%;
-    animation: rotate 2.5s infinite linear
 
 }
 .preloader::before {
     content: '';
-    width: 60%;
-    height: 60%;
+    width: 50%;
+    height: 50%;
     border-left: 3px solid #C72538;
     position: absolute;
     border-radius: 50%;
-    animation: rotate 2s infinite linear
 
 }
 @keyframes rotate {

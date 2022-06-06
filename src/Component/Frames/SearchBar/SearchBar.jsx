@@ -30,10 +30,17 @@ const SearchBar = (props) => {
     <div className={style.search_bar_wrapper}>
       <div className={style.movie_search_text}>Movie Search</div>
       <div className={style.input_search_block}>
-        <input type='text' placeholder='Search Movies...' />
-        <div>
+        <input
+          type='text'
+          placeholder='Search Movies...'
+          onKeyUp={(e) => props.getSearchText(e.target.value)}
+        />
+        <NavLink
+          to={`/movies?search=${props.searchText}`}
+          onClick={() => props.searchMoviesTitle(props.searchText)}
+          className={style.search_btn}>
           <FontAwesomeIcon icon={faSearch} />
-        </div>
+        </NavLink>
       </div>
       <div className={style.movie_search_categories}>Categories Movies</div>
       <div className={style.categories}>

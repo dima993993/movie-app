@@ -1,10 +1,9 @@
 import style from "./Frames.module.css";
 import SearchBar from "./SearchBar/SearchBar";
 import BannerMovies from "./BannerMovies/BannerMovies";
-import Header from "./Header/Header";
 import ListMovies from "./Movies/ListMovies";
 import PopapForTrailer from "../../Common/PopapForTrailer/PopapForTrailer";
-import Preloader from "../../Common/Preloader/Preloader";
+import HeaderContainer from "./Header/HeaderContainer";
 
 const Frames = (props) => {
   return (
@@ -17,13 +16,17 @@ const Frames = (props) => {
       ) : (
         ""
       )}
-      <Header />
+      <HeaderContainer />
       <BannerMovies />
 
       <div className={style.frames_content}>
         <SearchBar
           comingSoon={props.comingSoon}
           getCurrentMovie={props.getCurrentMovie}
+          getSearchText={props.getSearchText}
+          searchMoviesTitle={props.searchMoviesTitle}
+          searchText={props.searchText}
+          hashTag={props.hashTag}
         />
         <ListMovies {...props} />
       </div>

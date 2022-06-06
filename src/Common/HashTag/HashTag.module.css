@@ -1,0 +1,14 @@
+.hash_tag {
+    padding: 5px 10px;
+    background-color: #555555;
+    border-radius: 20px;
+    font-family: Arial;
+}
+.hash_tag > *:last-child {
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.hash_tag > *:last-child:hover {
+    color: #C72538;
+}

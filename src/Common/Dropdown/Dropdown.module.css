@@ -1,0 +1,10 @@
+.dropdown {
+    background-color: transparent;
+    width: 150px;
+    border: 1px solid #555555;
+    outline: none;
+    padding: 5px 10px;
+}
+.dropdown > * {
+    background-color: #333333;
+}
