@@ -15,7 +15,7 @@ import Preloader from "../../Common/Preloader/Preloader";
 class FramesWrapper extends PureComponent {
   componentDidMount() {
     if (this.props.movies == "") {
-      this.props.getAllMovies();
+      this.props.getAllMovies("films");
     }
   }
 

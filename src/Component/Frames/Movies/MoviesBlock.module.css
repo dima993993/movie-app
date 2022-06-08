@@ -27,7 +27,7 @@
     background-size: cover;
     transition: 0.5s;
 }
-.items_wrapper:hover .img_wrapper>div{
+.img_wrapper>div:hover{
     transform: scale(1.03);
 }
 .add_watch_list {

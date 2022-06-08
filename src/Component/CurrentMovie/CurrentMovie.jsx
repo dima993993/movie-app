@@ -25,6 +25,8 @@ const CurrentMovie = (props) => {
       return {
         backgroundImage: `url(${props.currentMovie.posters.backdrops[0].link})`,
       };
+    } else if (props.currentMovie.image == null) {
+      return { backgroundImage: `url(https://i.stack.imgur.com/6M513.png)` };
     } else {
       return { backgroundImage: `url(${props.currentMovie.image})` };
     }
@@ -94,19 +96,21 @@ const CurrentMovie = (props) => {
       <div className={style.block_similars}>
         <div>Similars</div>
         <div className={style.similars_item}>
-          {props.currentMovie.similars.map((el) => {
-            return (
-              <NavLink
-                to={`/movies/${el.id}`}
-                className={style.similars}
-                onClick={() => props.getCurrentMovie(el.id)}>
-                <div
-                  className={style.similars_image}
-                  style={{ backgroundImage: `url(${el.image})` }}></div>
-                <div className={style.similars_title}>{el.title}</div>
-              </NavLink>
-            );
-          })}
+          {props.currentMovie.similars != null
+            ? props.currentMovie.similars.map((el) => {
+                return (
+                  <NavLink
+                    to={`/movies/${el.id}`}
+                    className={style.similars}
+                    onClick={() => props.getCurrentMovie(el.id)}>
+                    <div
+                      className={style.similars_image}
+                      style={{ backgroundImage: `url(${el.image})` }}></div>
+                    <div className={style.similars_title}>{el.title}</div>
+                  </NavLink>
+                );
+              })
+            : ""}
         </div>
       </div>
     </div>

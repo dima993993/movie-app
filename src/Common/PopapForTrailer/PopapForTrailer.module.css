@@ -25,6 +25,10 @@
     top: 20px;
     right: 40px;
 }
-
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
 
 

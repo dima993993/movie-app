@@ -12,11 +12,17 @@ const GET_SEARCH_TEXT = "GET_SEARCH_TEXT";
 const TOGGLE_HASH_TAG = "TOGGLE_HASH_TAG";
 const REVIEW_TEXT = "REVIEW_TEXT";
 const REVIEW_ARRAY = "REVIEW_ARRAY";
-const GET_SERIALS = "GET_SERIALS";
 
 let initialState = {
+  films: {
+    items: [],
+    itemsInPage: [],
+  },
+  serials: {
+    items: [],
+    itemsInPage: [],
+  },
   movies: [],
-  serials: [],
   currentMovie: [],
   itemsInPage: [],
   comingSoon: [],
@@ -55,12 +61,6 @@ const MovieReducer = (state = initialState, action) => {
         ...state,
         movies: action.movies,
         countPage: Math.ceil(action.movies.length / state.countItemsInPage),
-      };
-    }
-    case GET_SERIALS: {
-      return {
-        ...state,
-        serials: action.data,
       };
     }
     case SEARCH_CURRENT_MOVIE: {
@@ -155,7 +155,6 @@ const getcomingSoonMovies = (comingSoonMovies) => ({
 });
 const getSearchMovies = (movies) => ({ type: SEARCH_MOVIES, movies });
 const toggleHashTag = (hashTag) => ({ type: TOGGLE_HASH_TAG, hashTag });
-const getSerialsData = (data) => ({ type: GET_SERIALS, data });
 
 export const getReviewText = (text) => ({ type: REVIEW_TEXT, text });
 export const getReviewItems = (id, item) => ({ type: REVIEW_ARRAY, id, item });
@@ -168,20 +167,29 @@ export const getSearchText = (text) => ({ type: GET_SEARCH_TEXT, text });
 
 // Thunks
 
-export const getAllMovies = () => {
+export const getAllMovies = (endpoint) => {
+  let selectEndpoint;
+  if (endpoint == "films") {
+    selectEndpoint = imdbAPI.getMovie();
+  } else if (endpoint == "serials") {
+    selectEndpoint = imdbAPI.getSerials();
+  } else if (endpoint == "top250") {
+    selectEndpoint = imdbAPI.getTop();
+  } else if (endpoint == "mostPopularMovies") {
+    selectEndpoint = imdbAPI.getMostPopularMovies();
+  } else {
+    selectEndpoint = imdbAPI.getMovie();
+  }
   return (dispatch) => {
     dispatch(loadingPage(false));
-    imdbAPI.getMovie().then((data) => {
-      dispatch(getMovies(data.results));
-      dispatch(countItemInPage(data.results));
+    selectEndpoint.then((data) => {
+      dispatch(getMovies(data.results || data.items));
+      dispatch(countItemInPage(data.results || data.items));
       dispatch(toggleHashTag(false));
       dispatch(loadingPage(true));
     });
     imdbAPI.getComingSoon().then((data) => {
       dispatch(getcomingSoonMovies(data.items));
-    });
-    imdbAPI.getSerials().then((data) => {
-      dispatch(getSerialsData(data.results));
     });
   };
 };

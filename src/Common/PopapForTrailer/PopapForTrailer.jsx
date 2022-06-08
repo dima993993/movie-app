@@ -1,7 +1,6 @@
 import style from "./PopapForTrailer.module.css";
 import ClosePopap from "./../Button/ClosePopap/ClosePopap";
 import React from "react";
-import ReactPlayer from "react-player";
 const PopapForTrailer = (props) => {
   console.log(props);
   return (
@@ -12,15 +11,14 @@ const PopapForTrailer = (props) => {
         <ClosePopap />
       </div>
       <div className={style.popap}>
-        <div>{props.title}</div>
+        <div className={style.title}>{props.title}</div>
         <div className={style.video_player}>
-          {/* <iframe
+          <iframe
             width='860px'
             height='400px'
             src={props.trailer.linkEmbed}
             title={props.title}
-            allowFullScreen></iframe> */}
-          <ReactPlayer url={props.trailer.thumbnailUrl} />
+            allowFullScreen></iframe>
         </div>
         <div className={style.description}>{props.plot}</div>
       </div>

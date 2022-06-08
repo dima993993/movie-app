@@ -3,6 +3,7 @@ import style from "./Header.module.css";
 import Logo from "./../../../Common/Logo/Logo.jsx";
 
 const Header = (props) => {
+  let path = window.location.href.split("/");
   return (
     <div className={style.header}>
       <div className={style.logo}>
@@ -15,15 +16,32 @@ const Header = (props) => {
         <div>
           <NavLink
             to={"/movies"}
-            onClick={props.movies == "" ? () => props.getAllMovies() : ""}>
+            onClick={() => {
+              props.getAllMovies("films");
+              props.usePagination(1);
+            }}>
             Movies
           </NavLink>
         </div>
         <div>
-          <NavLink to={"/serials"}>Serials</NavLink>
+          <NavLink
+            to={"/movies?search=serials"}
+            onClick={() => {
+              props.getAllMovies("serials");
+              props.usePagination(1);
+            }}>
+            Serials
+          </NavLink>
         </div>
         <div>
-          <NavLink to={"/top250"}>Top250</NavLink>
+          <NavLink
+            to={"/movies?search=top250"}
+            onClick={() => {
+              props.getAllMovies("top250");
+              props.usePagination(1);
+            }}>
+            Top250
+          </NavLink>
         </div>
         <div>
           <NavLink to={"/"}>Watch List</NavLink>
