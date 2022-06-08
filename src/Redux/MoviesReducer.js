@@ -14,14 +14,6 @@ const REVIEW_TEXT = "REVIEW_TEXT";
 const REVIEW_ARRAY = "REVIEW_ARRAY";
 
 let initialState = {
-  films: {
-    items: [],
-    itemsInPage: [],
-  },
-  serials: {
-    items: [],
-    itemsInPage: [],
-  },
   movies: [],
   currentMovie: [],
   itemsInPage: [],
