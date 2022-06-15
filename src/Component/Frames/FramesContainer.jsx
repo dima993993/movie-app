@@ -18,8 +18,12 @@ class FramesWrapper extends PureComponent {
       this.props.getAllMovies("films");
     }
   }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log(prevProps);
+  }
 
   render() {
+    console.log("render");
     return (
       <>
         {!this.props.toggleLoading ? <Preloader /> : <Frames {...this.props} />}
@@ -36,7 +40,6 @@ let mapStateToProps = (state) => {
     countItemsInPage: state.MoviesPage.countItemsInPage,
     currentPage: state.MoviesPage.currentPage,
     countPage: state.MoviesPage.countPage,
-    activePage: state.MoviesPage.activePage,
     trailerPopap: state.MoviesPage.trailerPopap,
     comingSoon: state.MoviesPage.comingSoon,
     currentMovie: state.MoviesPage.currentMovie,

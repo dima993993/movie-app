@@ -9,9 +9,6 @@ body {
 a {
   text-decoration: none !important;
 }
-li {
-  list-style-type: none !important;
-}
 .app_wrapper {
   max-width: 100% !important;
 }
