@@ -12,6 +12,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import CommonButton from "../../Common/Button/CommonButton/CommonButton";
+import PopapForTrailer from "../../Common/PopapForTrailer/PopapForTrailer";
+import Footer from "../Footer/Footer";
 import HeaderContainer from "../Frames/Header/HeaderContainer";
 import style from "./CurrentMovie.module.css";
 import Reviews from "./Reviews/Reviews";
@@ -35,7 +37,9 @@ const CurrentMovie = (props) => {
     <div>
       <HeaderContainer />
       <div className={style.trailer_block} style={image()}>
-        <div className={style.wrapper_btn}>
+        <div
+          className={style.wrapper_btn}
+          onClick={() => props.useTrailerPopap(true)}>
           <span className={style.animation_circle}></span>
           <span className={style.trailer_btn}>
             <span className={style.trailer_btn_icon}>
@@ -113,6 +117,15 @@ const CurrentMovie = (props) => {
             : ""}
         </div>
       </div>
+      {props.trailerPopap ? (
+        <PopapForTrailer
+          useTrailerPopap={props.useTrailerPopap}
+          {...props.currentMovie}
+        />
+      ) : (
+        ""
+      )}
+      <Footer />
     </div>
   );
 };

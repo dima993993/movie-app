@@ -8,14 +8,16 @@
 .content_block > div {
     padding: 50px 0;
 }
+
 .summary>div {
     width: 80%;
     margin: 0 auto;
 }
 .summary ul li {
     color: #999999;
-    margin: 20px;
+    margin: 20px 0;
 }
+
 .skills_block_wrapper {
     background-color: #000000;
     width: 100%;
@@ -28,6 +30,7 @@
 }
 .item_skills {
     width: 30%;
+    cursor: pointer;
 }
 .item_skills > div:first-child {
     display: flex;
@@ -42,17 +45,17 @@
 .item_block span:last-child {
     margin-left: 10px;
 }
+
 .arrow {
-    cursor: pointer;
     transition: 0.5s;
 }
 .arrow_rotate {
     transform: rotate(90deg);
     transition: 0.5s;
-    cursor: pointer;
 }
 .disable {
     height: 0;
+    display: none;
 }
 .active {
     animation: showSubMenu 1s forwards;
@@ -61,17 +64,29 @@
     border: 3px solid #cccccc;
     border-radius: 20px;
     box-shadow: 0px 0px 10px #999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .hide {
     opacity: 0;
+    display: none;
 }
 .show {
-    animation: subMenuText 1s forwards;
-    padding: 10px;
-    
+    animation: subMenuText 2s forwards;
+    width: 90%;
+    height: 80%;
+    overflow-y: scroll;   
 }
 .show * {  
     font-weight: bold;
+}
+.show::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+}
+.show::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
 }
 @keyframes subMenuText {
     0% {
@@ -90,3 +105,24 @@
         height : 150px;
     }
 }
+
+.additional_items {
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+}
+.item {
+    width: 25%;
+    text-align: center;
+}
+.item>div:first-child * {
+    font-size: 50px;
+    color: #444444
+}
+.item>div:last-child {
+    line-height: 30px;
+    margin-top: 10px;
+
+}
+

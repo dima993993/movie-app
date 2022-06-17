@@ -1,13 +1,15 @@
 import style from "./InfoAboutMe.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 const ItemSkill = (props) => {
   let [subMenu, getSubMenu] = useState(false);
   console.log(subMenu);
   return (
-    <div className={style.item_skills}>
+    <div
+      className={style.item_skills}
+      onClick={() => getSubMenu(subMenu ? false : true)}>
       <div>
         <div className={style.item_block}>
           <span>
@@ -15,10 +17,8 @@ const ItemSkill = (props) => {
           </span>
           <span>{props.title}</span>
         </div>
-        <div
-          className={subMenu ? style.arrow_rotate : style.arrow}
-          onClick={() => getSubMenu(subMenu ? false : true)}>
-          <FontAwesomeIcon icon={faArrowRight} />
+        <div className={subMenu ? style.arrow_rotate : style.arrow}>
+          <FontAwesomeIcon icon={faCaretRight} />
         </div>
       </div>
       <div className={subMenu ? style.active : style.disable}>

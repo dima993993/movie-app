@@ -1,3 +1,25 @@
 .slider img {
-    height: 90vh;
+    width: 100vh;
+    animation: scaleImage 20s infinite linear;
+}
+@keyframes scaleImage {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2)
+    }
+}
+.my_caption {
+ top: 50vh;
+ left:-100px;   
+}
+.slider h5{
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.slider p {
+    font-size: 35px;
+    color: #C72538;
 }

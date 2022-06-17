@@ -12,6 +12,7 @@ const GET_SEARCH_TEXT = "GET_SEARCH_TEXT";
 const TOGGLE_HASH_TAG = "TOGGLE_HASH_TAG";
 const REVIEW_TEXT = "REVIEW_TEXT";
 const REVIEW_ARRAY = "REVIEW_ARRAY";
+const ACTIVE_GENRE = "ACTIVE_GENRE";
 
 let initialState = {
   movies: [],
@@ -27,6 +28,14 @@ let initialState = {
   searchText: "",
   reviewText: "",
   reviewArray: [{ idMovie: "1", message: "Good Movie!!!" }],
+  genres: [
+    { genre: "action", active: false },
+    { genre: "drama", active: false },
+    { genre: "adventure", active: false },
+    { genre: "comedy", active: false },
+    { genre: "horror", active: false },
+    { genre: "fantasy", active: false },
+  ],
 };
 
 const getCountPageItem = (movies) => {
@@ -126,6 +135,17 @@ const MovieReducer = (state = initialState, action) => {
         reviewText: "",
       };
     }
+    case ACTIVE_GENRE: {
+      return {
+        ...state,
+        genres: state.genres.map((el) => {
+          return {
+            genre: el.genre,
+            active: el.genre == action.genre ? true : false,
+          };
+        }),
+      };
+    }
     default:
       return state;
   }
@@ -157,6 +177,8 @@ export const useTrailerPopap = (statePopap) => ({
 });
 export const getSearchText = (text) => ({ type: GET_SEARCH_TEXT, text });
 
+export const activeGenre = (genre) => ({ type: ACTIVE_GENRE, genre });
+
 // Thunks
 
 export const getAllMovies = (endpoint) => {
@@ -169,6 +191,8 @@ export const getAllMovies = (endpoint) => {
     selectEndpoint = imdbAPI.getTop();
   } else if (endpoint == "mostPopularMovies") {
     selectEndpoint = imdbAPI.getMostPopularMovies();
+  } else if (endpoint) {
+    selectEndpoint = imdbAPI.getGenre(endpoint);
   } else {
     selectEndpoint = imdbAPI.getMovie();
   }

@@ -34,9 +34,7 @@ a {
 .logo {
     margin-top: 80px !important;
 }
-.information {
-    width: 65%;
-}
+
 .nav_position {
     width: 50%;
 }
@@ -78,6 +76,22 @@ a {
 .search_position > div {
     margin-left: 20px;
 }
-
-
+.information {
+    width: 65%;
+}
+.information > div {
+    display: flex;
+    justify-content: center;
+    margin-top: 65vh;
+}
+.information > div > div {
+    margin: 20px;
+}
+.information h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+.contacts > *, .social_buttons > * {
+    margin-top: 20px;
+}
 

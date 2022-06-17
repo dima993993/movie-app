@@ -2,7 +2,6 @@ import style from "./PopapForTrailer.module.css";
 import ClosePopap from "./../Button/ClosePopap/ClosePopap";
 import React from "react";
 const PopapForTrailer = (props) => {
-  console.log(props);
   return (
     <div className={style.popap_wrapper}>
       <div

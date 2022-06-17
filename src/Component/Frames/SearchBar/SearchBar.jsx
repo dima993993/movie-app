@@ -44,12 +44,23 @@ const SearchBar = (props) => {
       </div>
       <div className={style.movie_search_categories}>Categories Movies</div>
       <div className={style.categories}>
-        <div>Comedy</div>
-        <div>Action</div>
-        <div>Advanture</div>
-        <div>Drama</div>
-        <div>Horror</div>
-        <div>Fantasy</div>
+        {props.genres.map((el) => {
+          let firstLetter = el.genre.split("")[0].toUpperCase();
+          let resultWord = firstLetter + el.genre.slice(1, el.genre.length);
+          return (
+            <div>
+              <NavLink
+                to={`/movies?gener=${el.genre}`}
+                className={el.active ? style.active_link : ""}
+                onClick={() => {
+                  props.getAllMovies(el.genre);
+                  props.activeGenre(el.genre);
+                }}>
+                {resultWord}
+              </NavLink>
+            </div>
+          );
+        })}
       </div>
       <div className={style.movie_search_coming_soon}>Coming Soon</div>
       <div className={style.coming_soon_block}>

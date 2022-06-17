@@ -27,4 +27,32 @@
 .social_buttons {
     transform: rotate(-90deg)
 }
+.theme_bar_wrapper {
+    position: fixed;
+    left: 8%;
+    bottom: 12%;
+    background-color: red;
+    z-index: 99;
+    display: flex;
+    border-radius: 20px;
+    background-color: #cccccc;
+    transform: rotate(-90deg);
+    opacity: 0.5;
+}
+.theme_bar_wrapper:hover {
+    opacity: 1;
+}
+.theme_bar_wrapper > div {
+    padding: 5px 25px; 
+    border-radius: 20px;
+    cursor: pointer;
+}
+.active_theme {
+    box-shadow: 1px 1px 20px #000000;
+}
+.theme_bar_wrapper span {
+    color: #000000;
+    font-weight: bold;
+    font-size: 14px;
+}
 

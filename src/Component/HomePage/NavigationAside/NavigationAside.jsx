@@ -4,6 +4,19 @@ import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../../../Common/Logo/Logo";
 import SocialButtons from "../../../Common/SocialButtons/SocialButtons";
 
+const ThemeBar = () => {
+  return (
+    <div className={style.theme_bar_wrapper}>
+      <div className={style.active_theme}>
+        <span>Dark</span>
+      </div>
+      <div>
+        <span>Light</span>
+      </div>
+    </div>
+  );
+};
+
 const NavigationAside = (props) => {
   return (
     <div className={style.aside_wrapper}>
@@ -27,6 +40,7 @@ const NavigationAside = (props) => {
           </div>
         </div>
       </div>
+      <ThemeBar />
     </div>
   );
 };

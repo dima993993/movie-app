@@ -1,0 +1,43 @@
+.footer_wrapper {
+
+    background-image: url('./../../img/noise.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 50px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.footer_wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+.footer_wrapper > div {
+    position: relative;
+    z-index: 9;
+}
+.footer_wrapper p {
+    font-size: 30px;
+    font-weight: bold;
+}
+.logo_wrapper {
+    margin-top: 180px;
+}
+.social_buttons_wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+.social_buttons_wrapper * {
+    font-size: 30px;
+}
+.contact_wrapper {
+    margin-top: 100px;
+}

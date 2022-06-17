@@ -4,6 +4,7 @@ import BannerMovies from "./BannerMovies/BannerMovies";
 import ListMovies from "./Movies/ListMovies";
 import PopapForTrailer from "../../Common/PopapForTrailer/PopapForTrailer";
 import HeaderContainer from "./Header/HeaderContainer";
+import Footer from "../Footer/Footer";
 
 const Frames = (props) => {
   return (
@@ -27,9 +28,13 @@ const Frames = (props) => {
           searchMoviesTitle={props.searchMoviesTitle}
           searchText={props.searchText}
           hashTag={props.hashTag}
+          getAllMovies={props.getAllMovies}
+          genres={props.genres}
+          activeGenre={props.activeGenre}
         />
         <ListMovies {...props} />
       </div>
+      <Footer />
     </div>
   );
 };

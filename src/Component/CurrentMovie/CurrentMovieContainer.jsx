@@ -5,6 +5,7 @@ import {
   getCurrentMovie,
   getReviewItems,
   getReviewText,
+  useTrailerPopap,
 } from "../../Redux/MoviesReducer";
 import CurrentMovie from "./CurrentMovie";
 
@@ -33,6 +34,7 @@ let mapStateToProps = (state) => {
     toggleLoading: state.MoviesPage.toggleLoading,
     reviewText: state.MoviesPage.reviewText,
     reviewArray: state.MoviesPage.reviewArray,
+    trailerPopap: state.MoviesPage.trailerPopap,
   };
 };
 
@@ -40,5 +42,6 @@ let CurrentMovieContainer = connect(mapStateToProps, {
   getCurrentMovie,
   getReviewText,
   getReviewItems,
+  useTrailerPopap,
 })(CurrentMovieWrapper);
 export default CurrentMovieContainer;

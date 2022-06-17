@@ -33,13 +33,18 @@
 .search_btn:hover *{
     color: #C72538;
 }
+.categories {
+    margin-top: 20px;
+}
 .categories > div {
+    margin-top: 15px;
+}
+.categories > div > * {
     color: #999999;
-    margin-top: 10px;
     cursor: pointer;
     transition: 0.5s;
 }
-.categories > div:hover {
+.categories > div>*:hover {
     color: #C72538;
 }
 .poster_block {
@@ -72,4 +77,8 @@
 }
 .coming_soon_rating > span:last-child {
     margin-left: 10px;
+}
+.active_link {
+    margin-left: 20px;
+    color: #C72538 !important;
 }

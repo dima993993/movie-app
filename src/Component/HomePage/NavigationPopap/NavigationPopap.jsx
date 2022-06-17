@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import ClosePopap from "../../../Common/Button/ClosePopap/ClosePopap.jsx";
 import Logo from "./../../../Common/Logo/Logo.jsx";
 import style from "./Popap.module.css";
+import SocialButtons from "./../../../Common/SocialButtons/SocialButtons";
 
 const NavigationPopap = (props) => {
   let NavigationItem = (path, nameItem) => {
@@ -29,9 +30,16 @@ const NavigationPopap = (props) => {
         </div>
       </div>
       <div className={style.information}>
-        <div className={style.information}>
-          <div className={style.contacts}></div>
-          <div className={style.social_buttons}></div>
+        <div>
+          <div className={style.contacts}>
+            <h3>Contact Inormation</h3>
+            <div>dima.terehov.00@gmail.com</div>
+            <div>+380999469579</div>
+          </div>
+          <div className={style.social_buttons}>
+            <h3>Social Buttons</h3>
+            <SocialButtons />
+          </div>
         </div>
       </div>
       <div className={style.close} onClick={() => props.closePopap()}>

@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import {
+  activeGenre,
   getAllMovies,
   getCurrentMovie,
   getSearchText,
@@ -18,12 +19,8 @@ class FramesWrapper extends PureComponent {
       this.props.getAllMovies("films");
     }
   }
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(prevProps);
-  }
 
   render() {
-    console.log("render");
     return (
       <>
         {!this.props.toggleLoading ? <Preloader /> : <Frames {...this.props} />}
@@ -45,6 +42,7 @@ let mapStateToProps = (state) => {
     currentMovie: state.MoviesPage.currentMovie,
     searchText: state.MoviesPage.searchText,
     hashTag: state.MoviesPage.hashTag,
+    genres: state.MoviesPage.genres,
   };
 };
 
@@ -56,5 +54,6 @@ let FramesContainer = connect(mapStateToProps, {
   openTrailerPopap,
   searchMoviesTitle,
   getSearchText,
+  activeGenre,
 })(FramesWrapper);
 export default FramesContainer;

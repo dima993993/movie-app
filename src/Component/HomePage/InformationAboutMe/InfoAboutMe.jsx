@@ -10,6 +10,8 @@ import imgPhotoshop from "./../../../img/photoshop.png";
 import imgBootstrap from "./../../../img/bootstrap.svg";
 import imgGit from "./../../../img/git.png";
 import ItemSkill from "./ItemSkill";
+import Aditional from "./Aditional";
+import Footer from "../../Footer/Footer";
 
 const InfoAboutMe = () => {
   return (
@@ -37,6 +39,17 @@ const InfoAboutMe = () => {
               </li>
               <li>Preparation of HTML emails for mailing</li>
             </ul>
+            <h2>Education</h2>
+            <ul>
+              <li>
+                Ukrainian State University of Science and Technologies,
+                Management. (2012 - 2017)
+              </li>
+              <li>
+                <b>Courses:</b> Front End Developer. Learning IT Center: Level
+                Up (2021)
+              </li>
+            </ul>
           </div>
         </div>
         <div className={style.skills_block_wrapper}>
@@ -49,14 +62,29 @@ const InfoAboutMe = () => {
                 "Understanding BEM Metodology",
                 "Create layout",
                 "Use HTML plugins",
+                "Adaptive layout",
               ]}
             />
             <ItemSkill
               icon={imgCss}
               title={"CSS3"}
-              subMenu={["Flexbox", "Grid", "Animation"]}
+              subMenu={[
+                "Flexbox",
+                "Grid",
+                "Animation",
+                "Media Queries",
+                "123",
+                "123",
+                "123",
+                "123",
+                "123",
+              ]}
             />
-            <ItemSkill icon={imgLess} title={"LESS"} subMenu={["Mixin"]} />
+            <ItemSkill
+              icon={imgLess}
+              title={"LESS"}
+              subMenu={["Mixin", "Use veribles"]}
+            />
             <ItemSkill
               icon={imgBootstrap}
               title={"Bootstrap"}
@@ -76,6 +104,7 @@ const InfoAboutMe = () => {
                 "React-router-dom",
                 "Thunk",
                 "React-redux",
+                "Use module system CSS",
               ]}
             />
             <ItemSkill
@@ -100,10 +129,11 @@ const InfoAboutMe = () => {
             />
           </div>
         </div>
-        <div className={style.additiona}>
-          <h2>Additional</h2>
+        <div className={style.additional_block}>
+          <Aditional />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

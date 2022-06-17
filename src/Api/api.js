@@ -39,4 +39,9 @@ export const imdbAPI = {
     const url = "MostPopularMovies/";
     return instance(url);
   },
+  getGenre(genre) {
+    const url = "AdvancedSearch/";
+    const options = `?genres=${genre}`;
+    return instance(url, options);
+  },
 };
