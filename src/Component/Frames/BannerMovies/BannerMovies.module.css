@@ -1,19 +1,28 @@
 .banner_wrapper {
     max-width: 100%;
+    margin-top: 20px;
 }
 .banner_block > div {
-    height: 300px;
+    height: 320px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    overflow-y: scroll;
 }
-.banner_block > div:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right:0;
-    left:0;
-    background-color: rgba(0,0,0,0.5);
+.banner_block > div::-webkit-scrollbar {
+    height: 5px;
+    background-color: transparent;
+}
+.banner_block > div::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+}
+.item_wrapper {
+    margin: 0 5px;
+    cursor: pointer;
+}
+.item_wrapper img {
+    height: 300px;
 }

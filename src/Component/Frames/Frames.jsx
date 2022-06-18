@@ -18,7 +18,10 @@ const Frames = (props) => {
         ""
       )}
       <HeaderContainer />
-      <BannerMovies />
+      <BannerMovies
+        mostPopularMovies={props.mostPopularMovies}
+        getCurrentMovie={props.getCurrentMovie}
+      />
 
       <div className={style.frames_content}>
         <SearchBar

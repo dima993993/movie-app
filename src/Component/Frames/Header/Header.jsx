@@ -14,34 +14,13 @@ const Header = (props) => {
           <NavLink to={"/"}>Home</NavLink>
         </div>
         <div>
-          <NavLink
-            to={"/movies"}
-            onClick={() => {
-              props.getAllMovies("films");
-              props.usePagination(1);
-            }}>
-            Movies
-          </NavLink>
+          <NavLink to={"/movies"}>Movies</NavLink>
         </div>
         <div>
-          <NavLink
-            to={"/movies?search=serials"}
-            onClick={() => {
-              props.getAllMovies("serials");
-              props.usePagination(1);
-            }}>
-            Serials
-          </NavLink>
+          <NavLink to={"/serials"}>Serials</NavLink>
         </div>
         <div>
-          <NavLink
-            to={"/movies?search=top250"}
-            onClick={() => {
-              props.getAllMovies("top250");
-              props.usePagination(1);
-            }}>
-            Top250
-          </NavLink>
+          <NavLink to={"/top250"}>Top250</NavLink>
         </div>
         <div>
           <NavLink to={"/"}>Watch List</NavLink>

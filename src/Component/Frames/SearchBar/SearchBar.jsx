@@ -33,10 +33,15 @@ const SearchBar = (props) => {
         <input
           type='text'
           placeholder='Search Movies...'
-          onKeyUp={(e) => props.getSearchText(e.target.value)}
+          onChange={(e) => props.getSearchText(e.target.value)}
+          onKeyUp={(e) => {
+            if (e.key == "Enter") {
+              document.querySelector(`.${style.search_btn}`).click();
+            }
+          }}
         />
         <NavLink
-          to={`/movies?search=${props.searchText}`}
+          to={`/search?${props.searchText}`}
           onClick={() => props.searchMoviesTitle(props.searchText)}
           className={style.search_btn}>
           <FontAwesomeIcon icon={faSearch} />
@@ -50,7 +55,7 @@ const SearchBar = (props) => {
           return (
             <div>
               <NavLink
-                to={`/movies?gener=${el.genre}`}
+                to={`/genre?${el.genre}`}
                 className={el.active ? style.active_link : ""}
                 onClick={() => {
                   props.getAllMovies(el.genre);

@@ -4,7 +4,11 @@ import {
   openNavPopap,
   openSearchPopap,
 } from "../../Redux/HomePageReducer";
-import { getSearchText, searchMoviesTitle } from "../../Redux/MoviesReducer";
+import {
+  getAllMovies,
+  getSearchText,
+  searchMoviesTitle,
+} from "../../Redux/MoviesReducer";
 import HomePage from "./HomePage";
 
 const HomePageWrapper = (props) => {
@@ -25,6 +29,7 @@ let HomePageContainer = connect(mapStateToProps, {
   openSearchPopap,
   searchMoviesTitle,
   getSearchText,
+  getAllMovies,
 })(HomePageWrapper);
 
 export default HomePageContainer;

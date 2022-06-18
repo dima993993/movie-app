@@ -11,7 +11,7 @@ const ListMovies = (props) => {
         <div>
           {props.hashTag ? (
             <HashTag
-              text={props.searchText}
+              text={props.hashTagText}
               getAllMovies={props.getAllMovies}
             />
           ) : (

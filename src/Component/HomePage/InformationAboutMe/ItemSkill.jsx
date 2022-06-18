@@ -5,12 +5,9 @@ import { useState } from "react";
 
 const ItemSkill = (props) => {
   let [subMenu, getSubMenu] = useState(false);
-  console.log(subMenu);
   return (
-    <div
-      className={style.item_skills}
-      onClick={() => getSubMenu(subMenu ? false : true)}>
-      <div>
+    <div className={style.item_skills}>
+      <div onClick={() => getSubMenu(subMenu ? false : true)}>
         <div className={style.item_block}>
           <span>
             <img src={props.icon} alt={props.title} />

@@ -1,13 +1,21 @@
+import { NavLink } from "react-router-dom";
 import style from "./BannerMovies.module.css";
-const BannerMovies = () => {
+const BannerMovies = (props) => {
   return (
     <div className={style.banner_wrapper}>
       <div className={style.banner_block}>
-        <div
-          style={{
-            backgroundImage:
-              'url("https://ichef.bbci.co.uk/news/1536/cpsprodpb/14990/production/_89586348_istock_000080279023_medium.jpg")',
-          }}></div>
+        <div>
+          {props.mostPopularMovies.map((el) => {
+            return (
+              <NavLink
+                to={`/movies/${el.id}`}
+                className={style.item_wrapper}
+                onClick={() => props.getCurrentMovie(el.id)}>
+                <img src={el.image} alt={el.title} />
+              </NavLink>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

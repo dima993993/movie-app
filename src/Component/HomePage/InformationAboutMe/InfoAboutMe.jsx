@@ -68,17 +68,7 @@ const InfoAboutMe = () => {
             <ItemSkill
               icon={imgCss}
               title={"CSS3"}
-              subMenu={[
-                "Flexbox",
-                "Grid",
-                "Animation",
-                "Media Queries",
-                "123",
-                "123",
-                "123",
-                "123",
-                "123",
-              ]}
+              subMenu={["Flexbox", "Grid", "Animation", "Media Queries"]}
             />
             <ItemSkill
               icon={imgLess}
@@ -105,6 +95,7 @@ const InfoAboutMe = () => {
                 "Thunk",
                 "React-redux",
                 "Use module system CSS",
+                "FLUX",
               ]}
             />
             <ItemSkill

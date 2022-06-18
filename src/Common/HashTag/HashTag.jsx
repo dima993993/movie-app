@@ -1,10 +1,11 @@
+import { NavLink } from "react-router-dom";
 import style from "./HashTag.module.css";
 
 const HashTag = (props) => {
   return (
     <div className={style.hash_tag}>
       <span>{props.text}</span>
-      <span onClick={() => props.getAllMovies()}>X</span>
+      <NavLink to={"/movies"}>X</NavLink>
     </div>
   );
 };

@@ -5,8 +5,8 @@ import style from "./MoviesBlock.module.css";
 
 const MovieItem = (props) => {
   let title = () => {
-    if (props.title.length > 20) {
-      return props.title.slice(0, 20) + "...";
+    if (props.title.length > 15) {
+      return props.title.slice(0, 15) + "...";
     } else {
       return props.title;
     }
@@ -36,7 +36,7 @@ const MovieItem = (props) => {
         <div>
           <FontAwesomeIcon icon={faStar} />
         </div>
-        <div>{props.imDbRating}</div>
+        <div>{props.imDbRating == null ? 0 : props.imDbRating}</div>
       </div>
       <div className={style.title}>
         <div>{title()}</div>

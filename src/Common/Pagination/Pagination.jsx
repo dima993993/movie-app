@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import style from "./Pagination.module.css";
 
 const Pagination = (props) => {
+  let basePath = window.location.href.split("/");
+  let path = basePath[basePath.length - 1].split("?")[0];
   let paginationBtn = () => {
     let arr = [];
     let currentArrPage = [];
@@ -24,7 +26,7 @@ const Pagination = (props) => {
       <div className={style.pagination}>
         {paginationBtn().map((el) => (
           <NavLink
-            to={`/movies?page=${el}`}
+            to={`/${path}?page=${el}`}
             onClick={() => {
               props.usePagination(el);
             }}

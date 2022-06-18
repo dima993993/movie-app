@@ -13,18 +13,21 @@ const TOGGLE_HASH_TAG = "TOGGLE_HASH_TAG";
 const REVIEW_TEXT = "REVIEW_TEXT";
 const REVIEW_ARRAY = "REVIEW_ARRAY";
 const ACTIVE_GENRE = "ACTIVE_GENRE";
+const MOST_POPULAR_MOVIES = "MOST_POPULAR_MOVIES";
 
 let initialState = {
   movies: [],
   currentMovie: [],
   itemsInPage: [],
   comingSoon: [],
+  mostPopularMovies: [],
   toggleLoading: false,
   countItemsInPage: 15,
   currentPage: 1,
   countPage: 5,
   trailerPopap: false,
   hashTag: false,
+  hashTagText: "",
   searchText: "",
   reviewText: "",
   reviewArray: [{ idMovie: "1", message: "Good Movie!!!" }],
@@ -100,6 +103,12 @@ const MovieReducer = (state = initialState, action) => {
         comingSoon: action.comingSoonMovies,
       };
     }
+    case MOST_POPULAR_MOVIES: {
+      return {
+        ...state,
+        mostPopularMovies: action.movies.slice(0, 20),
+      };
+    }
     case PAGINATION: {
       return {
         ...state,
@@ -116,6 +125,7 @@ const MovieReducer = (state = initialState, action) => {
       return {
         ...state,
         hashTag: action.hashTag,
+        hashTagText: action.text,
       };
     }
     case REVIEW_TEXT: {
@@ -165,8 +175,16 @@ const getcomingSoonMovies = (comingSoonMovies) => ({
   type: COMING_SOON,
   comingSoonMovies,
 });
+const getMostPopularMovies = (movies) => ({
+  type: MOST_POPULAR_MOVIES,
+  movies,
+});
 const getSearchMovies = (movies) => ({ type: SEARCH_MOVIES, movies });
-const toggleHashTag = (hashTag) => ({ type: TOGGLE_HASH_TAG, hashTag });
+const toggleHashTag = (hashTag, text) => ({
+  type: TOGGLE_HASH_TAG,
+  hashTag,
+  text,
+});
 
 export const getReviewText = (text) => ({ type: REVIEW_TEXT, text });
 export const getReviewItems = (id, item) => ({ type: REVIEW_ARRAY, id, item });
@@ -204,9 +222,16 @@ export const getAllMovies = (endpoint) => {
       dispatch(toggleHashTag(false));
       dispatch(loadingPage(true));
     });
-    imdbAPI.getComingSoon().then((data) => {
-      dispatch(getcomingSoonMovies(data.items));
-    });
+    if (initialState.comingSoon == "") {
+      imdbAPI.getComingSoon().then((data) => {
+        dispatch(getcomingSoonMovies(data.items));
+      });
+    }
+    if (initialState.mostPopularMovies == "") {
+      imdbAPI.getMostPopularMovies().then((data) => {
+        dispatch(getMostPopularMovies(data.items));
+      });
+    }
   };
 };
 
@@ -234,13 +259,13 @@ export const openTrailerPopap = (id) => {
 
 export const searchMoviesTitle = (title) => {
   return (dispatch) => {
-    dispatch(toggleHashTag(false));
+    dispatch(toggleHashTag(false, ""));
     dispatch(loadingPage(false));
     imdbAPI.searchMovie(title).then((data) => {
       dispatch(getSearchMovies(data.results));
       dispatch(getMovies(data.results));
       dispatch(countItemInPage(data.results));
-      dispatch(toggleHashTag(true));
+      dispatch(toggleHashTag(true, title));
       dispatch(loadingPage(true));
     });
   };

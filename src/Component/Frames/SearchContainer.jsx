@@ -13,9 +13,8 @@ import Frames from "./Frames";
 import React, { PureComponent } from "react";
 import Preloader from "../../Common/Preloader/Preloader";
 
-class FramesWrapper extends PureComponent {
+class SearchWrapper extends PureComponent {
   componentDidMount() {
-    this.props.getAllMovies("films");
     this.props.usePagination(1);
     this.props.activeGenre(false);
   }
@@ -42,12 +41,13 @@ let mapStateToProps = (state) => {
     currentMovie: state.MoviesPage.currentMovie,
     searchText: state.MoviesPage.searchText,
     hashTag: state.MoviesPage.hashTag,
+    hashTagText: state.MoviesPage.hashTagText,
     genres: state.MoviesPage.genres,
     mostPopularMovies: state.MoviesPage.mostPopularMovies,
   };
 };
 
-let FramesContainer = connect(mapStateToProps, {
+let SearchContainer = connect(mapStateToProps, {
   getAllMovies,
   usePagination,
   useTrailerPopap,
@@ -56,5 +56,5 @@ let FramesContainer = connect(mapStateToProps, {
   searchMoviesTitle,
   getSearchText,
   activeGenre,
-})(FramesWrapper);
-export default FramesContainer;
+})(SearchWrapper);
+export default SearchContainer;

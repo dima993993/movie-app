@@ -13,9 +13,9 @@ import Frames from "./Frames";
 import React, { PureComponent } from "react";
 import Preloader from "../../Common/Preloader/Preloader";
 
-class FramesWrapper extends PureComponent {
+class SerialsWrapper extends PureComponent {
   componentDidMount() {
-    this.props.getAllMovies("films");
+    this.props.getAllMovies("serials");
     this.props.usePagination(1);
     this.props.activeGenre(false);
   }
@@ -47,7 +47,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-let FramesContainer = connect(mapStateToProps, {
+let SerialsContainer = connect(mapStateToProps, {
   getAllMovies,
   usePagination,
   useTrailerPopap,
@@ -56,5 +56,5 @@ let FramesContainer = connect(mapStateToProps, {
   searchMoviesTitle,
   getSearchText,
   activeGenre,
-})(FramesWrapper);
-export default FramesContainer;
+})(SerialsWrapper);
+export default SerialsContainer;

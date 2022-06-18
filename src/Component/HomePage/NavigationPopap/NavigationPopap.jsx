@@ -19,8 +19,8 @@ const NavigationPopap = (props) => {
           <div className={style.nav_position}>
             {NavigationItem("/", "Home")}
             {NavigationItem("/movies", "Movies")}
-            {NavigationItem("/", "Serials")}
-            {NavigationItem("/", "Top200")}
+            {NavigationItem("/serials", "Serials")}
+            {NavigationItem("/top250", "Top250")}
             {NavigationItem("/", "Watch List")}
             {NavigationItem("/", "Pages")}
             <div className={style.logo}>

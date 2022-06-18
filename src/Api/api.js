@@ -23,8 +23,9 @@ export const imdbAPI = {
     return instance(url);
   },
   searchMovie(title) {
-    const url = "Search/";
-    return instance(url, title);
+    const url = "AdvancedSearch/";
+    const options = `?title=${title}`;
+    return instance(url, options);
   },
   getSerials() {
     const url = "AdvancedSearch/";
